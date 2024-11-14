@@ -98,3 +98,44 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.classList.toggle('active');
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const typedElement = document.querySelector(".typed");
+  const cursorElement = document.querySelector(".typed-cursor");
+  const items = typedElement.getAttribute("data-typed-items").split(",").map(item => item.trim()).filter(item => item);
+  
+  // Create a span for the underline
+  const underline = document.createElement("span");
+  underline.classList.add("underline");
+  typedElement.appendChild(underline);
+
+  let itemIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const typingSpeed = 100;
+  const erasingSpeed = 50;
+  const delayBetweenItems = 1500;
+
+  function type() {
+    const currentItem = items[itemIndex];
+    if (!isDeleting && charIndex < currentItem.length) {
+      typedElement.textContent += currentItem.charAt(charIndex);
+      charIndex++;
+      underline.style.width = (charIndex / currentItem.length) * 100 + "%";  // Adjust the width of the underline
+      setTimeout(type, typingSpeed);
+    } else if (isDeleting && charIndex > 0) {
+      typedElement.textContent = currentItem.substring(0, charIndex - 1);
+      charIndex--;
+      underline.style.width = (charIndex / currentItem.length) * 100 + "%";  // Adjust the width of the underline
+      setTimeout(type, erasingSpeed);
+    } else {
+      isDeleting = !isDeleting;
+      if (!isDeleting) {
+        itemIndex = (itemIndex + 1) % items.length;
+      }
+      setTimeout(type, delayBetweenItems);
+    }
+  }
+
+  type();
+});
