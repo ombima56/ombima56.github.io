@@ -929,6 +929,18 @@ nav {
     height: 320px;
   }
 
+  .profile-about {
+    width: 280px;
+    height: 280px;
+    position: relative;
+  }
+  
+  .about-content {
+    width: 100%;
+    gap: 2rem;
+    padding: 1.5rem;
+  }
+
   .text-content {
     align-items: center;
     gap: 5px;
