@@ -179,7 +179,21 @@ nav {
 
 .about-content {
   display: flex;
-  width: 50%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  background-color: #111111;
+  border-radius: 10px;
+  margin-top: 2rem;
+  gap: 3rem;
+  /* flex-direction: row-reverse; */
+}
+
+.about-contents {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin: 50px auto 0;
   justify-content: space-between;
   grid-template-columns: 1fr;
   align-items: center;
@@ -192,9 +206,11 @@ nav {
 }
 
 .about-text {
+  text-align: 55%;
   color: #ddd;
   font-size: 1.1rem;
   line-height: 1.8;
+  order: 1;
 }
 
 .projects-grid {
@@ -371,7 +387,6 @@ footer {
   list-style-type: none;
   display: inline-flex;
   animation: scroll 30s linear infinite; /* Continuous scroll */
-  /* padding-left: 100%; */
 }
 
 .skill-list li {
@@ -603,20 +618,23 @@ nav {
 }
 
 .profile-about {
-  display: flex;
-  justify-content: space-between;
   width: 40%;
-  height: 450px;
-  float: right;
-  margin: auto;
-  /* border-radius: 50%; */
-  border: 4px solid #4caf50;
+  border-radius: 8%;
   overflow: hidden;
-  margin-bottom: 1rem;
-  position: relative;
   box-shadow: 0 0 25px rgba(76, 175, 80, 0.3);
   transition: all 0.3s ease;
-  border-radius: 8%;
+  order: 2;
+}
+
+.profile-about img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.profile-about:hover img {
+  transform: scale(1.1);
 }
 
 .profile-about:hover {
@@ -665,6 +683,34 @@ nav {
   font-weight: 500;
   box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
 }
+
+/* typing animation */
+.typed-cursor--blink {
+  display: inline-block;
+  animation: blink 0.7s infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+
+  /* Green underline */
+  .typed {
+    display: inline-block;
+    position: relative;
+  }
+
+  .underline {
+    content: "";
+    position: absolute;
+    bottom: -2px; /* Adjust for a little spacing from the text */
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: green;
+    transition: width 0.3s ease;
+  }
 
 .cta-button:hover {
   transform: translateY(-3px);
@@ -930,15 +976,21 @@ nav {
   }
 
   .profile-about {
-    width: 100%;
-    height: 280px;
-    position: relative;
+    width: 60%;
+    height: 350px;
+    order: 2;
   }
   
   .about-content {
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column-reverse;
+  }
+
+  .about-text {
     width: 100%;
-    gap: 2rem;
-    padding: 1.5rem;
+    text-align: center;
+    order: 1;
   }
 
   .text-content {
@@ -961,19 +1013,23 @@ nav {
   .profile-image {
     width: 100%;
     height: 280px;
+    text-align: center;
   }
 
-.profile-about {
-  width: 280px;
-  height: 280px;
-  position: relative;
-}
+  .profile-about {
+    width: 80%;
+    height: 300px;
+  }
 
-.about-content {
-  width: 100%;
-  gap: 2rem;
-  padding: 1.5rem;
-}
+  .about-content {
+    width: 50%;
+    gap: 2rem;
+    padding: 1.5rem;
+  }
+
+  .about-text {
+    font-size: 1rem;
+  }
 
   .text-content h1 {
     font-size: 2.5rem;
@@ -994,8 +1050,25 @@ nav {
   }
 
   .profile-image {
+    text-align: center;
     width: 240px;
     height: 240px;
+  }
+
+  .profile-about {
+    /* align-content: center; */
+    width: 100%;
+    height: 250px;
+  }
+
+  .about-text {
+    font-size: 0.9rem;
+  }
+  
+  .about-content {
+    width: 100%;
+    gap: 2rem;
+    padding: 1.5rem;
   }
 
   .text-content h1 {
