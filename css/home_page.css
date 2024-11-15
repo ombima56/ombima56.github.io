@@ -309,7 +309,22 @@ img[src*='icons8-css-48.png'] {
   height: auto;
 }
 
+img[src*='icons8-git-48.png'] {
+  width: 30px;
+  height: auto;
+}
+
 img[src*='icons8-html-48.png'] {
+  width: 30px;
+  height: auto;
+}
+
+img[src*='icons8-docker-64.png'] {
+  width: 30px;
+  height: auto;
+}
+
+img[src*='icons8-django-48.png'] {
   width: 30px;
   height: auto;
 }
