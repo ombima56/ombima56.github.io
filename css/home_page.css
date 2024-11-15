@@ -351,7 +351,139 @@ nav {
 /* end of project-image */
 
 .contact-section {
+  background: linear-gradient(45deg, #0a0a0a, #1a1a1a);
+  color: #ffffff;
+  padding: 4rem 0;
+}
+
+.container {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.section-heading-wrap {
   text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-heading-wrap h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+/* Form Styles */
+.form-outline-style-v1 {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-outline-style-v1 input,
+.form-outline-style-v1 textarea {
+  width: 100%;
+  background-color: #111111;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 8px;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-outline-style-v1 input:focus,
+.form-outline-style-v1 textarea:focus {
+  outline: none;
+  border-color: #4caf50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.form-outline-style-v1 input::placeholder,
+.form-outline-style-v1 textarea::placeholder {
+  color: #6b7280;
+}
+
+/* Submit Button */
+.form-outline-style-v1 input[type="submit"] {
+  background-color: transparent;
+  border: 2px solid #4caf50;
+  color: #4caf50;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: auto;
+}
+
+.form-outline-style-v1 input[type="submit"]:hover {
+  background-color: #4caf50;
+  color: #0a0a0a;
+}
+
+/* Contact Info Styles */
+.contact-info-v1 {
+  padding: 2rem;
+  /* background-color: #111111; */
+  border-radius: 8px;
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); */
+}
+
+.contact-info-v1 .block {
+  color: #9ca3af;
+  margin-bottom: 0.5rem;
+}
+
+.contact-info-v1 h6 {
+  color: #ffffff;
+  font-size: 1.125rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Success/Error Messages */
+#form-message-warning,
+#form-message-success {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+#form-message-warning {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+#form-message-success {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #4caf50;
+}
+
+/* Animations */
+.form-outline-style-v1 input,
+.form-outline-style-v1 textarea,
+.contact-info-v1 {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .social-links {
@@ -466,6 +598,7 @@ footer {
   overflow: hidden;
   white-space: nowrap;
   text-align: center;
+  cursor: pointer;
 }
 
 .skill-list {
@@ -1091,6 +1224,23 @@ nav {
   .text-content h1 {
     font-size: 3rem;
   }
+
+  .contact-section {
+    padding: 4rem 2rem;
+  }
+  
+  .section-heading-wrap h2 {
+    font-size: 2.5rem;
+  }
+  
+  .flex {
+    gap: 2rem;
+  }
+  
+  .contact-info-v1 {
+    padding: 1.75rem;
+  }
+
 }
 
 @media (max-width: 768px) {
@@ -1161,6 +1311,40 @@ nav {
   .cta-button {
     margin: 0 auto;
   }
+
+  .contact-section {
+    padding: 4rem 1rem;
+  }
+  
+  .section-heading-wrap h2 {
+    font-size: 2rem;
+  }
+  
+  .flex {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .form-outline-style-v1 input,
+  .form-outline-style-v1 textarea {
+    font-size: 0.9rem;
+    padding: 0.875rem;
+  }
+  
+  .contact-info-v1 {
+    margin-top: 2rem;
+    padding: 1.5rem;
+  }
+  
+  .contact-info-v1 h6 {
+    font-size: 1rem;
+  }
+  
+  .w-full.md\:w-1\/2,
+  .w-full.md\:w-1\/3 {
+    width: 100%;
+  }
+
 }
 
 @media (max-width: 480px) {
@@ -1212,4 +1396,33 @@ nav {
   .text-content .typed-text {
     font-size: 1.1rem;
   }
+
+  .contact-section {
+    padding: 3rem 1rem;
+  }
+  
+  .section-heading-wrap h2 {
+    font-size: 2rem;
+  }
+  
+  .flex {
+    gap: 1rem;
+  }
+  
+  .form-outline-style-v1 input,
+  .form-outline-style-v1 textarea {
+    font-size: 0.9rem;
+    padding: 0.75rem;
+  }
+  
+  .form-outline-style-v1 input[type="submit"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .contact-info-v1 {
+    padding: 1.25rem;
+  }
+
 }
