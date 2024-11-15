@@ -186,7 +186,6 @@ nav {
   border-radius: 10px;
   margin-top: 2rem;
   gap: 3rem;
-  /* flex-direction: row-reverse; */
 }
 
 .about-contents {
@@ -213,75 +212,143 @@ nav {
   order: 1;
 }
 
+/* Projects Section Base */
+.section#projects {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+}
+
+#projects h2 {
+  margin-bottom: 4rem;
+  font-size: 2.5rem;
+  color: #4caf50;
+  position: relative;
+}
+
+#projects h2::after {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #4caf50;
+  border-radius: 2px;
+}
+
+/* Projects Grid Layout */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  gap: 2.5rem;
+  padding: 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
+/* Project Card Styling */
 .project-card {
-  background-color: #111111;
-  border-radius: 10px;
+  background: rgba(17, 17, 17, 0.95);
+  border-radius: 15px;
   padding: 1.5rem;
-  transition: transform 0.3s ease;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(76, 175, 80, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(76, 175, 80, 0.1),
+    transparent,
+    rgba(76, 175, 80, 0.1)
+  );
+  transform: translateY(100%);
+  transition: transform 0.6s ease;
+}
+
+.project-card:hover::before {
+  transform: translateY(0);
 }
 
 .project-card:hover {
   transform: translateY(-10px);
-  transform: scale(1.05);
-  transition: transform 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(76, 175, 80, 0.3);
 }
 
+/* Project Image Container */
 .project-image {
   width: 100%;
   height: 200px;
-  background-color: #222;
-  border-radius: 5px;
-  margin-bottom: 1rem;
-}
-/* Add or update these CSS rules in your existing styles */
-
-.project-image {
-  width: 100%;
-  height: 200px;
-  background-color: #222;
-  border-radius: 5px;
-  margin-bottom: 1rem;
-  overflow: hidden; /* This prevents image overflow */
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 1.5rem;
 }
 
 .project-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* This ensures the image covers the area without distortion */
-  transition: transform 0.3s ease; /* Optional: adds smooth zoom effect on hover */
-}
-
-.project-card {
-  background-color: #111111;
-  border-radius: 10px;
-  padding: 1.5rem;
-  transition: transform 0.3s ease;
-  cursor: pointer;
-}
-
-.project-card:hover {
-  transform: translateY(-10px);
+  object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
 .project-card:hover .project-image img {
-  transform: scale(1.05); /* Optional: slight zoom effect on hover */
+  transform: scale(1.1);
 }
 
+/* Project Text Content */
 .project-card h3 {
   color: #4caf50;
-  margin: 1rem 0 0.5rem 0;
+  font-size: 1.4rem;
+  margin: 1rem 0;
+  transition: color 0.3s ease;
+}
+
+.project-card:hover h3 {
+  color: #45a049;
 }
 
 .project-card p {
-  color: #888;
-  font-size: 0.9rem;
+  color: #aaa;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
 }
+
+/* Project Links */
+.project-card a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  height: 100%;
+}
+
+/* Project Card Overlay */
+.project-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(17, 17, 17, 0.9);
+  padding: 1rem;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-overlay {
+  transform: translateY(0);
+}
+
+/* end of project-image */
 
 .contact-section {
   text-align: center;
@@ -389,6 +456,10 @@ footer {
 .slide-in {
   animation: fadeIn 1s ease-in-out;
   animation: slideIn 1s ease forwards;
+}
+
+.section-skills h2 {
+  font-size: 2.5rem;
 }
 
 .skill-text {
@@ -889,7 +960,6 @@ nav {
 .text-content {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   gap: 1.5rem;
 }
 
@@ -985,6 +1055,11 @@ nav {
     gap: 2rem;
   }
 
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
   .profile-image {
     width: 320px;
     height: 320px;
@@ -1025,6 +1100,31 @@ nav {
     gap: 3rem;
   }
 
+  .section#projects {
+    padding: 4rem 1rem;
+  }
+  
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    padding: 1.25rem;
+  }
+
+  .project-image {
+    height: 180px;
+  }
+
+  .project-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .project-card p {
+    font-size: 0.9rem;
+  }
+
   .profile-image {
     width: 100%;
     height: 280px;
@@ -1050,6 +1150,10 @@ nav {
     font-size: 2.5rem;
   }
 
+  .section-skills h2 {
+    font-size: 1.5rem;
+  }
+
   .text-content .typed-text {
     font-size: 1.3rem;
   }
@@ -1064,6 +1168,22 @@ nav {
     padding: 4rem 1rem;
   }
 
+  #projects h2 {
+    font-size: 2rem;
+  }
+
+  .section-skills h2 {
+    font-size: 2rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-image {
+    height: 160px;
+  }
+
   .profile-image {
     text-align: center;
     width: 240px;
@@ -1071,7 +1191,6 @@ nav {
   }
 
   .profile-about {
-    /* align-content: center; */
     width: 100%;
     height: 250px;
   }
