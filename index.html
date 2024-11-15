@@ -40,9 +40,7 @@
           <h1>Hi, I'm <span>Hillary Ombima</span></h1>
           <div>
             <p>I'm <span class="typed" data-typed-items="Web Designer, Backend Developer, Database Manager, Software Developer"></span><span class="typed-cursor typed-cursor--blink">|</span></p>
-            <!-- <p>I'm <span class="typed" data-typed-items="Software Developer, Web Designer, Backend Developer, Database Manager">Developer</span><span class="typed-cursor typed-cursor--blink"></span></p> -->
           </div>
-          <!-- <div class="typed-text">Full Stack Developer and Designer</div> -->
           <div class="social-links">
             <a href="https://twitter.com/HOmbima32706"><i class="fab fa-twitter"></i></a>
             <a href="https://www.facebook.com/ombisheh.ombishehsmithneo"><i class="fab fa-facebook"></i></a>
@@ -50,7 +48,6 @@
             <a href="https://www.linkedin.com/in/hillary-ombima-724430207"><i class="fab fa-linkedin"></i></a>
             <a href="https://github.com/ombima56"><i class="fab fa-github"></i></a>
           </div>
-          <!-- <a href="#contact" class="cta-button">Get in Touch</a> -->
         </div>
       </div>
     </section>
@@ -243,36 +240,114 @@
     </section>
 
     <section class="section contact-section" id="contact">
-      <h2 class="slide-in">Get In Touch</h2>
-      <div class="social-links slide-in">
-        <a href="https://github.com/ombima56" target="_blank" title="GitHub">
-          <i class="fab fa-github"></i>
-        </a>
-        <a
-          href="https://www.linkedin.com/in/hillary-ombima-724430207"
-          target="_blank"
-          title="LinkedIn"
-        >
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a
-          href="https://twitter.com/HOmbima32706"
-          target="_blank"
-          title="Twitter"
-        >
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="mailto:ombimahillary6@gmail.com" title="Email">
-          <i class="fas fa-envelope"></i>
-        </a>
-        <a
-          href="https://www.instagram.com/ombima/"
-          target="_blank"
-          title="Instagram"
-        >
-          <i class="fab fa-instagram"></i>
-        </a>
+      <div class="unslate_co--section" id="contact-section">
+        <div class="container mx-auto px-4 py-10">
+          <div class="section-heading-wrap text-center mb-5">
+            <h2 class="text-4xl font-bold mb-2"><span class="gsap-reveal">Get In Touch</span></h2>
+          </div>
+
+          <div class="flex flex-wrap justify-between">
+            <div class="w-full md:w-1/2 mb-6">
+              <form method="POST" action="https://formspree.io/f/meoqkbpv" class="form-outline-style-v1" id="contactForm">
+                  <div class="form-group mb-0">
+                      <div class="mb-4">
+                          <input name="name" type="text" class="bg-gray-800 text-white border border-gray-600 rounded-md p-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 w-full" id="name" placeholder="Name" required>
+                      </div>
+                      <div class="mb-4">
+                          <input name="_replyto" type="email" class="bg-gray-800 text-white border border-gray-600 rounded-md p-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 w-full" id="email" placeholder="Email" required>
+                      </div>
+                      <div class="mb-4">
+                          <textarea name="message" id="message" cols="30" rows="7" class="bg-gray-800 text-white border border-gray-600 rounded-md p-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 w-full" placeholder="Write your message..." required></textarea>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <div class="flex items-center">
+                          <input type="submit" class="bg-transparent border border-green-500 text-green-500 font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out mr-3 hover:bg-green-500 hover:text-white" value="Send Message">
+                          <span class="submitting"></span>
+                      </div>
+                  </div>
+              </form>
+              <div id="form-message-warning" style="display:none;" class="mt-4"></div>
+              <div id="form-message-success" style="display:none;">
+                Your message was sent, thank you!
+              </div>
+            </div>
+
+            <div class="w-full md:w-1/3 mb-6">
+              <div class="contact-info-v1">
+                <div class="gsap-reveal">
+                  <span class="block text-gray-400">Email</span>
+                  <h6 class="text-lg text-white">ombimahillary@gmail.com</h6>
+                </div>
+                <div class="gsap-reveal mt-4">
+                  <span class="block text-gray-400">Phone</span>
+                  <h6 class="text-lg text-white">+254758973394</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          console.log('DOM fully loaded and parsed');
+
+          const form = document.getElementById('contactForm');
+          console.log('Form element:', form);
+
+          const inputs = form.querySelectorAll('input[type="text"], input[type="email"], textarea');
+          console.log('Input elements:', inputs);
+
+          form.addEventListener('submit', function (event) {
+            console.log('Form submitted');
+            event.preventDefault(); // Prevent default form submission
+
+            const formData = new FormData(this);
+            console.log('FormData created:', formData);
+
+            fetch(this.action, {
+              method: 'POST',
+              body: formData,
+              headers: {
+                'Accept': 'application/json'
+              }
+            })
+              .then(response => {
+                console.log('Response received:', response);
+                if (response.ok) {
+                  console.log('Response is OK');
+                  document.getElementById('form-message-success').style.display = 'block';
+                  console.log('Success message displayed');
+
+                  // Clear form fields
+                  inputs.forEach(input => {
+                    console.log('Clearing input:', input);
+                    input.value = '';
+                  });
+
+                  // Hide success message after 2 seconds
+                  setTimeout(() => {
+                    document.getElementById('form-message-success').style.display = 'none';
+                    console.log('Success message hidden');
+                  }, 2000);
+                } else {
+                  throw new Error('Something went wrong.');
+                }
+              })
+              .catch(error => {
+                console.error('Error occurred:', error);
+                document.getElementById('form-message-warning').innerText = error.message;
+                document.getElementById('form-message-warning').style.display = 'block';
+              });
+          });
+
+          // Log initial state of form
+          console.log('Initial form state:');
+          inputs.forEach(input => {
+            console.log(input.id + ':', input.value);
+          });
+        });
+      </script>
     </section>
     <script src="/js/home_page.js"></script>
     <footer>
